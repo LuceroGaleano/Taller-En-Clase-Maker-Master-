@@ -50,6 +50,27 @@ btnVolver.addEventListener("click", volverAlFormulario);
 
 
 // ✍️ FEATURE 1: contador de caracteres en observaciones
+const campoObservaciones = document.getElementById("observaciones");
+const contador = document.getElementById("contadorObservaciones");
+
+campoObservaciones.maxLength = 200;
+
+function actualizarContador(){
+  const tamañoObservaciones = campoObservaciones.value.length;
+  contador.textContent = tamañoObservaciones + "/200";
+  if(tamañoObservaciones >=150 && tamañoObservaciones <200){
+    contador.classList.remove("contador--limite");
+    contador.classList.add("contador--alerta");
+  } else if(tamañoObservaciones == 200){
+    contador.classList.remove("contador--alerta");
+    contador.classList.add("contador--limite");
+  }else{
+    contador.classList.remove("contador--alerta");
+    contador.classList.remove("contador--limite");
+  }
+}
+
+campoObservaciones.addEventListener("input", actualizarContador);
 
 
 
