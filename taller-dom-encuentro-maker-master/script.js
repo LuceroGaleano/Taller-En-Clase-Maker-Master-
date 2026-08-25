@@ -125,8 +125,34 @@ campoCorreo.addEventListener("blur", validarCorreoElectronico);
 
 
 // 🎟️ FEATURE 3: límite de talleres seleccionables
+const campoGrupoTalleres = document.getElementById("grupo-talleres");
+const contadorTalleres = document.getElementById("contadorTalleres");
 
+function validarLimiteDeTalleres(){
+  const camposSeleccionados = campoGrupoTalleres.querySelectorAll('input:checked');
+  contadorTalleres.textContent = "Talleres seleccionados:" +  camposSeleccionados.length + "/2";
 
+  const todosLosCampos = campoGrupoTalleres.querySelectorAll('input[name="taller"]');
+
+  if(camposSeleccionados.length == 2){
+    contadorTalleres.classList.add("contador--limite");
+    todosLosCampos.forEach(function(campo){
+      if (!campo.checked) {
+        campo.disabled = true;
+        campo.closest('.opcion').classList.add("opcion--bloqueada");
+      }
+    });
+  } else{
+    contadorTalleres.classList.remove("contador--limite");
+    todosLosCampos.forEach(function(campo){
+      campo.disabled = false;
+      campo.closest('.opcion').classList.remove("opcion--bloqueada");
+    });
+  }
+  
+}
+
+campoGrupoTalleres.addEventListener("change", validarLimiteDeTalleres);
 
 
 // 💰 FEATURE 4: cálculo del total de la inscripción
