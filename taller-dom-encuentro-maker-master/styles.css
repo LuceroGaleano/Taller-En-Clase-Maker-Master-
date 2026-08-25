@@ -1,0 +1,476 @@
+/* 🎪 Encuentro Maker Medellín 2026 */
+/* 🚫 Aquí no hay que tocar nada. El CSS ya está listo. */
+/* 👇 Al final están las clases que vas a usar desde JS. */
+
+:root {
+  --tinta: #14202b;
+  --tinta-suave: #5c6b78;
+  --papel: #e9edf1;
+  --superficie: #ffffff;
+  --linea: #c8d2da;
+  --acento: #e8a100;
+  --acento-oscuro: #a97600;
+  --error: #b4372a;
+  --exito: #0e7357;
+
+  --fuente-display: "Space Grotesk", "Trebuchet MS", sans-serif;
+  --fuente-texto: "Inter", -apple-system, "Segoe UI", sans-serif;
+  --fuente-mono: "JetBrains Mono", "Courier New", monospace;
+
+  --radio: 4px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--papel);
+  background-image:
+    linear-gradient(rgba(20, 32, 43, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 32, 43, 0.045) 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: var(--tinta);
+  font-family: var(--fuente-texto);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+/* 🏁 Encabezado */
+
+.encabezado {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 64px 24px 32px;
+}
+
+.encabezado__eyebrow {
+  margin: 0 0 12px;
+  font-family: var(--fuente-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--acento-oscuro);
+}
+
+.encabezado__titulo {
+  margin: 0;
+  font-family: var(--fuente-display);
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.encabezado__bajada {
+  margin: 16px 0 0;
+  max-width: 46ch;
+  color: var(--tinta-suave);
+}
+
+/* 📄 Lienzo */
+
+.lienzo {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px 96px;
+}
+
+.formulario {
+  background-color: var(--superficie);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+}
+
+/* 🧱 Bloques */
+
+.bloque {
+  margin: 0;
+  padding: 32px;
+  border: none;
+  border-bottom: 1px solid var(--linea);
+}
+
+.bloque__titulo {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 0;
+  margin-bottom: 24px;
+  font-family: var(--fuente-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.bloque__numero {
+  font-family: var(--fuente-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--acento-oscuro);
+}
+
+.bloque__ayuda {
+  margin: -12px 0 20px;
+  font-size: 0.875rem;
+  color: var(--tinta-suave);
+}
+
+.subbloque {
+  margin-top: 20px;
+  padding: 20px;
+  border-left: 3px solid var(--acento);
+  background-color: var(--papel);
+}
+
+/* ⌨️ Campos */
+
+.campo {
+  margin-bottom: 20px;
+}
+
+.campo:last-child {
+  margin-bottom: 0;
+}
+
+.campo-doble {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.campo__etiqueta {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+.campo__control {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  background-color: var(--superficie);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--tinta);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.campo__control:focus {
+  outline: none;
+  border-color: var(--acento);
+  box-shadow: 0 0 0 3px rgba(232, 161, 0, 0.25);
+}
+
+.campo__control--area {
+  resize: vertical;
+  min-height: 96px;
+}
+
+.campo__control--corto {
+  max-width: 160px;
+}
+
+/* ☑️ Opciones */
+
+.opciones {
+  display: grid;
+  gap: 10px;
+}
+
+.opcion {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.opcion:hover {
+  border-color: var(--acento);
+}
+
+.opcion input {
+  margin-top: 3px;
+  accent-color: var(--acento-oscuro);
+  flex-shrink: 0;
+}
+
+.opcion__texto {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.opcion__texto small {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.8rem;
+  color: var(--tinta-suave);
+}
+
+.opciones + .campo {
+  margin-top: 24px;
+}
+
+.opcion--simple {
+  border: none;
+  padding: 0;
+  align-items: center;
+}
+
+.opcion--simple:hover {
+  border-color: transparent;
+}
+
+/* 💰 Total */
+
+.total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 24px;
+  padding: 18px 20px;
+  background-color: var(--tinta);
+  border-radius: var(--radio);
+  color: var(--superficie);
+}
+
+.total__etiqueta {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-family: var(--fuente-mono);
+}
+
+.total__valor {
+  font-family: var(--fuente-display);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--acento);
+}
+
+/* 👥 Lista de acompañantes */
+
+.lista-acompanantes {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.lista-acompanantes:empty {
+  margin: 0;
+}
+
+.lista-acompanantes__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  background-color: var(--papel);
+  border-left: 3px solid var(--acento);
+  border-radius: var(--radio);
+  font-size: 0.92rem;
+}
+
+.lista-acompanantes__parentesco {
+  font-family: var(--fuente-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+.lista-acompanantes__item .boton-mini {
+  margin-left: auto;
+}
+
+/* 🔘 Botones */
+
+.boton {
+  display: inline-block;
+  padding: 12px 22px;
+  border: none;
+  border-radius: var(--radio);
+  font-family: var(--fuente-display);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.boton:focus-visible {
+  outline: 3px solid var(--acento);
+  outline-offset: 2px;
+}
+
+.boton--principal {
+  width: 100%;
+  padding: 16px 24px;
+  background-color: var(--tinta);
+  color: var(--superficie);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.boton--principal:hover:not(:disabled) {
+  background-color: #0b1620;
+}
+
+.boton--secundario {
+  background-color: var(--papel);
+  color: var(--tinta);
+  border: 1px solid var(--linea);
+}
+
+.boton--secundario:hover:not(:disabled) {
+  border-color: var(--acento);
+}
+
+.boton:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* 🦶 Pie del formulario */
+
+.pie-formulario {
+  padding: 32px;
+  display: grid;
+  gap: 20px;
+}
+
+/* 🎉 Panel de confirmación */
+
+.confirmacion {
+  margin-top: 24px;
+  padding: 32px;
+  background-color: var(--superficie);
+  border: 1px solid var(--linea);
+  border-left: 4px solid var(--exito);
+  border-radius: var(--radio);
+}
+
+.confirmacion__titulo {
+  margin: 0 0 8px;
+  font-family: var(--fuente-display);
+  font-size: 1.4rem;
+}
+
+.confirmacion__texto {
+  margin: 0 0 20px;
+  color: var(--tinta-suave);
+}
+
+/* 🧰 CLASES UTILITARIAS */
+/* Estas las agregas y las quitas desde JavaScript. */
+
+/* 🙈 Oculta cualquier elemento */
+.oculto {
+  display: none;
+}
+
+/* ⚠️ Mensaje de error bajo un campo */
+.mensaje-error {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--error);
+}
+
+/* ❌ Campo con datos inválidos */
+.campo__control--error {
+  border-color: var(--error);
+}
+
+.campo__control--error:focus {
+  box-shadow: 0 0 0 3px rgba(180, 55, 42, 0.2);
+}
+
+/* ✅ Campo con datos correctos */
+.campo__control--valido {
+  border-color: var(--exito);
+}
+
+/* 🔢 Contador de caracteres o selecciones */
+.contador {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--fuente-mono);
+  font-size: 0.78rem;
+  color: var(--tinta-suave);
+  text-align: right;
+}
+
+/* 🟡 Contador en advertencia */
+.contador--alerta {
+  color: var(--acento-oscuro);
+  font-weight: 700;
+}
+
+/* 🔴 Contador en el límite */
+.contador--limite {
+  color: var(--error);
+  font-weight: 700;
+}
+
+/* 🔒 Opción no disponible */
+.opcion--bloqueada {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.opcion--bloqueada:hover {
+  border-color: var(--linea);
+}
+
+/* 🗑️ Botón pequeño para listas */
+.boton-mini {
+  padding: 4px 10px;
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  background-color: var(--superficie);
+  font-family: var(--fuente-mono);
+  font-size: 0.72rem;
+  color: var(--error);
+  cursor: pointer;
+}
+
+.boton-mini:hover {
+  border-color: var(--error);
+}
+
+/* 📱 Responsive */
+
+@media (max-width: 620px) {
+  .campo-doble {
+    grid-template-columns: 1fr;
+  }
+
+  .bloque,
+  .pie-formulario {
+    padding: 24px 20px;
+  }
+
+  .encabezado {
+    padding-top: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

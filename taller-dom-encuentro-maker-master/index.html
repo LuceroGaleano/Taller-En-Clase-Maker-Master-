@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscripción | Encuentro Maker Medellín 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="encabezado">
+    <p class="encabezado__eyebrow">18 y 19 de abril, 2026 / Plaza Mayor</p>
+    <h1 class="encabezado__titulo">Encuentro Maker Medellín</h1>
+    <p class="encabezado__bajada">
+      Dos días de talleres de electrónica, impresión 3D y fabricación digital.
+      Diligencia el formulario para reservar tu cupo.
+    </p>
+  </header>
+
+  <main class="lienzo">
+
+    <form class="formulario" id="formulario-inscripcion" novalidate>
+
+      <!-- 🙋 01. Datos del participante -->
+      <fieldset class="bloque">
+        <legend class="bloque__titulo"><span class="bloque__numero">01</span> Datos del participante</legend>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="nombre">Nombre completo</label>
+          <input class="campo__control" type="text" id="nombre" name="nombre" placeholder="Ana Maria Restrepo">
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="documento">Documento de identidad</label>
+          <input class="campo__control" type="text" id="documento" name="documento" placeholder="1017234567">
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="correo">Correo electrónico</label>
+          <input class="campo__control" type="email" id="correo" name="correo" placeholder="ana@correo.com">
+          <!-- 👋 Aquí cabe el mensaje de validación -->
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="telefono">Teléfono de contacto</label>
+          <input class="campo__control" type="tel" id="telefono" name="telefono" placeholder="3001234567">
+        </div>
+
+        <div class="campo-doble">
+          <div class="campo">
+            <label class="campo__etiqueta" for="nacimiento">Fecha de nacimiento</label>
+            <input class="campo__control" type="date" id="nacimiento" name="nacimiento">
+          </div>
+
+          <div class="campo">
+            <label class="campo__etiqueta" for="ciudad">Ciudad de residencia</label>
+            <select class="campo__control" id="ciudad" name="ciudad">
+              <option value="">Selecciona una ciudad</option>
+              <option value="medellin">Medellín</option>
+              <option value="itagui">Itagüí</option>
+              <option value="envigado">Envigado</option>
+              <option value="bello">Bello</option>
+              <option value="sabaneta">Sabaneta</option>
+              <option value="otra">Otra</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 🎫 02. Modalidad -->
+      <fieldset class="bloque">
+        <legend class="bloque__titulo"><span class="bloque__numero">02</span> Modalidad de participación</legend>
+
+        <div class="opciones" id="grupo-modalidad">
+          <label class="opcion">
+            <input type="radio" name="modalidad" value="presencial" data-precio="120000" checked>
+            <span class="opcion__texto">
+              <strong>Presencial</strong>
+              <small>Acceso a los dos días en Plaza Mayor. $120.000</small>
+            </span>
+          </label>
+
+          <label class="opcion">
+            <input type="radio" name="modalidad" value="virtual" data-precio="60000">
+            <span class="opcion__texto">
+              <strong>Virtual</strong>
+              <small>Transmisión en vivo y grabaciones por 30 días. $60.000</small>
+            </span>
+          </label>
+
+          <label class="opcion">
+            <input type="radio" name="modalidad" value="estudiante" data-precio="45000">
+            <span class="opcion__texto">
+              <strong>Estudiante</strong>
+              <small>Presencial con carné vigente. $45.000</small>
+            </span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- 🛠️ 03. Talleres -->
+      <fieldset class="bloque">
+        <legend class="bloque__titulo"><span class="bloque__numero">03</span> Talleres de interés</legend>
+        <p class="bloque__ayuda">Cada participante puede reservar máximo 2 talleres.</p>
+
+        <div class="opciones" id="grupo-talleres">
+          <label class="opcion">
+            <input type="checkbox" name="taller" value="arduino">
+            <span class="opcion__texto">
+              <strong>Introducción a Arduino</strong>
+              <small>Sábado 9:00 a.m. / 20 cupos</small>
+            </span>
+          </label>
+
+          <label class="opcion">
+            <input type="checkbox" name="taller" value="impresion3d">
+            <span class="opcion__texto">
+              <strong>Impresión 3D desde cero</strong>
+              <small>Sábado 2:00 p.m. / 15 cupos</small>
+            </span>
+          </label>
+
+          <label class="opcion">
+            <input type="checkbox" name="taller" value="laser">
+            <span class="opcion__texto">
+              <strong>Corte láser y grabado</strong>
+              <small>Domingo 9:00 a.m. / 12 cupos</small>
+            </span>
+          </label>
+
+          <label class="opcion">
+            <input type="checkbox" name="taller" value="domotica">
+            <span class="opcion__texto">
+              <strong>Domótica con sensores</strong>
+              <small>Domingo 11:00 a.m. / 18 cupos</small>
+            </span>
+          </label>
+
+          <label class="opcion">
+            <input type="checkbox" name="taller" value="robotica">
+            <span class="opcion__texto">
+              <strong>Robótica educativa</strong>
+              <small>Domingo 3:00 p.m. / 20 cupos</small>
+            </span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- 👥 04. Acompañantes -->
+      <fieldset class="bloque">
+        <legend class="bloque__titulo"><span class="bloque__numero">04</span> Acompañantes</legend>
+        <p class="bloque__ayuda">Registra a las personas que asisten contigo. Máximo 4.</p>
+
+        <div class="campo-doble">
+          <div class="campo">
+            <label class="campo__etiqueta" for="acompanante-nombre">Nombre del acompañante</label>
+            <input class="campo__control" type="text" id="acompanante-nombre" placeholder="Nombre y apellido">
+          </div>
+
+          <div class="campo">
+            <label class="campo__etiqueta" for="acompanante-parentesco">Parentesco</label>
+            <select class="campo__control" id="acompanante-parentesco">
+              <option value="familiar">Familiar</option>
+              <option value="colega">Colega</option>
+              <option value="estudiante">Estudiante</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="boton boton--secundario" type="button" id="btn-agregar-acompanante">
+          Agregar acompañante
+        </button>
+
+        <ul class="lista-acompanantes" id="lista-acompanantes">
+          <!-- 👋 Aquí van los acompañantes registrados -->
+        </ul>
+      </fieldset>
+
+      <!-- 🎁 05. Servicios adicionales -->
+      <fieldset class="bloque">
+        <legend class="bloque__titulo"><span class="bloque__numero">05</span> Servicios adicionales</legend>
+
+        <div class="opciones" id="grupo-adicionales">
+          <label class="opcion">
+            <input type="checkbox" name="adicional" value="almuerzo" data-precio="35000">
+            <span class="opcion__texto">
+              <strong>Almuerzo los dos días</strong>
+              <small>$35.000</small>
+            </span>
+          </label>
+
+          <label class="opcion">
+            <input type="checkbox" name="adicional" value="kit" data-precio="55000">
+            <span class="opcion__texto">
+              <strong>Kit maker de bienvenida</strong>
+              <small>$55.000</small>
+            </span>
+          </label>
+
+          <label class="opcion">
+            <input type="checkbox" name="adicional" value="certificado" data-precio="18000">
+            <span class="opcion__texto">
+              <strong>Certificado impreso</strong>
+              <small>$18.000</small>
+            </span>
+          </label>
+        </div>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="talla">Talla de camiseta</label>
+          <select class="campo__control campo__control--corto" id="talla" name="talla">
+            <option value="xs">XS</option>
+            <option value="s">S</option>
+            <option value="m" selected>M</option>
+            <option value="l">L</option>
+            <option value="xl">XL</option>
+          </select>
+        </div>
+
+        <div class="total" id="total-inscripcion">
+          <span class="total__etiqueta">Total a pagar</span>
+          <span class="total__valor" id="valor-total">$0</span>
+        </div>
+      </fieldset>
+
+      <!-- 📝 06. Observaciones -->
+      <fieldset class="bloque">
+        <legend class="bloque__titulo"><span class="bloque__numero">06</span> Observaciones</legend>
+
+        <div class="campo">
+          <label class="campo__etiqueta" for="observaciones">
+            Requerimientos especiales, alergias o accesibilidad
+          </label>
+          <textarea
+            class="campo__control campo__control--area"
+            id="observaciones"
+            name="observaciones"
+            rows="4"
+            placeholder="Cuéntanos si necesitas algo puntual para tu participación."></textarea>
+          <!-- 👋 Aquí cabe el contador de caracteres -->
+        </div>
+
+        <label class="opcion opcion--simple">
+          <input type="checkbox" id="requiere-factura">
+          <span class="opcion__texto"><strong>Requiero factura electrónica</strong></span>
+        </label>
+
+        <div class="subbloque oculto" id="datos-factura">
+          <div class="campo">
+            <label class="campo__etiqueta" for="razon-social">Razón social</label>
+            <input class="campo__control" type="text" id="razon-social" placeholder="Nombre de la empresa">
+          </div>
+          <div class="campo">
+            <label class="campo__etiqueta" for="nit">NIT</label>
+            <input class="campo__control" type="text" id="nit" placeholder="900123456-7">
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 🚀 Envío -->
+      <div class="pie-formulario">
+        <label class="opcion opcion--simple">
+          <input type="checkbox" id="terminos">
+          <span class="opcion__texto">
+            Acepto el tratamiento de mis datos personales y el reglamento del evento.
+          </span>
+        </label>
+
+        <button class="boton boton--principal" type="submit" id="btn-enviar">
+          Confirmar inscripción
+        </button>
+      </div>
+
+    </form>
+
+    <section class="confirmacion oculto" id="panel-confirmacion">
+      <h2 class="confirmacion__titulo">Inscripción registrada</h2>
+      <p class="confirmacion__texto" id="confirmacion-texto"></p>
+      <button class="boton boton--secundario" type="button" id="btn-volver">Volver al formulario</button>
+    </section>
+
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
