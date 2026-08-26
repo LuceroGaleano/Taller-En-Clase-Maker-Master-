@@ -156,7 +156,33 @@ campoGrupoTalleres.addEventListener("change", validarLimiteDeTalleres);
 
 
 // 💰 FEATURE 4: cálculo del total de la inscripción
+const valorTotal = document.getElementById("valor-total");
+const campoModalidades = document.getElementById("grupo-modalidad");
+const campoServiciosAdicionales = document.getElementById("grupo-adicionales");
 
+function guardarPrecioModalidad(){
+  const modalidadElegida = campoModalidades.querySelector('input[name="modalidad"]:checked');
+  const precioModalidad = Number(modalidadElegida.dataset.precio);
+  return precioModalidad;
+}
+
+function guardarPrecioServiciosAdicionales(){
+  const serviciosAdicionales = campoServiciosAdicionales.querySelectorAll('input[name="adicional"]:checked');
+  let precioTotalServicio = 0;
+  serviciosAdicionales.forEach(function(servicioSeleccionado){
+    precioTotalServicio = precioTotalServicio + Number(servicioSeleccionado.dataset.precio);
+  });
+  return precioTotalServicio;
+}
+
+function mostrarPrecioTotal(){
+  const total = guardarPrecioModalidad() + guardarPrecioServiciosAdicionales()
+  valorTotal.textContent = "$" + total.toLocaleString("es-CO");
+}
+
+campoModalidades.addEventListener("change", mostrarPrecioTotal);
+campoServiciosAdicionales.addEventListener("change", mostrarPrecioTotal);
+mostrarPrecioTotal(); //Para cuando la pagina se recarge
 
 
 
