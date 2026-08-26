@@ -187,3 +187,59 @@ mostrarPrecioTotal(); //Para cuando la pagina se recarge
 
 
 // 👥 FEATURE 5: registro de acompañantes
+const listaAcompañantes = document.getElementById("lista-acompanantes");
+const botonAgregar = document.getElementById("btn-agregar-acompanante");
+const advertenciaNombre = document.getElementById("advertencia-nombre-vacio");
+
+function obtenerInformacionAcompañante(){
+  const campoNombre = document.getElementById("acompanante-nombre");
+  const campoParentesco = document.getElementById("acompanante-parentesco");
+
+  const nombre = campoNombre.value;
+  const parentesco = campoParentesco.value;
+  const datos = [nombre,parentesco]
+
+  campoNombre.value = "";
+  campoParentesco.value = "familiar";
+
+  return datos;
+}
+
+function validarLimiteAcompañantes(){
+  if(listaAcompañantes.children.length === 4){
+    botonAgregar.classList.add("opcion--bloqueada");
+    botonAgregar.disabled = true;
+  } else{
+    botonAgregar.classList.remove("opcion--bloqueada");
+    botonAgregar.disabled = false;
+  }
+}
+
+function agregarAcompañanteLista(){
+  const nuevo = obtenerInformacionAcompañante();
+
+  advertenciaNombre.textContent = "";
+  
+  if(nuevo[0].trim() === ""){
+    advertenciaNombre.textContent = "Escribe el nombre del acompañante";
+  } else{
+      const campoNuevoAcompañante = document.createElement("li");
+      const botonEliminar = document.createElement("button");
+      botonEliminar.textContent = "Eliminar";
+      botonEliminar.classList.add("boton-mini");
+      botonEliminar.addEventListener("click", function(){
+          campoNuevoAcompañante.remove();
+          validarLimiteAcompañantes();
+      });
+
+    campoNuevoAcompañante.textContent = "→ Nombre: " + nuevo[0] + " Parentesco: " + nuevo[1] + " ";
+    campoNuevoAcompañante.appendChild(botonEliminar);
+
+    listaAcompañantes.appendChild(campoNuevoAcompañante);
+    validarLimiteAcompañantes();
+  }
+}
+
+
+botonAgregar.addEventListener("click", agregarAcompañanteLista);
+
