@@ -243,3 +243,21 @@ function agregarAcompañanteLista(){
 
 botonAgregar.addEventListener("click", agregarAcompañanteLista);
 
+//Adicional ☑️: Terminos y condiciones
+const opcionTerminos = document.getElementById("terminos");
+const botonEnviar = document.getElementById("btn-enviar");
+botonEnviar.classList.add("opcion--bloqueada");
+botonEnviar.disabled = true;  
+
+function validarTerminos(){
+  if(opcionTerminos.checked){
+    botonEnviar.classList.remove("opcion--bloqueada");
+    botonEnviar.disabled = false;  
+  } else{
+    botonEnviar.classList.add("opcion--bloqueada");
+    botonEnviar.disabled = true;  
+  }
+}
+
+
+opcionTerminos.addEventListener("change", validarTerminos)
