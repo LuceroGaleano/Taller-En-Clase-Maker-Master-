@@ -50,8 +50,13 @@ btnVolver.addEventListener("click", volverAlFormulario);
 
 
 // ✍️ FEATURE 1: contador de caracteres en observaciones
+const divObservaciones = document.getElementById("campo")
 const campoObservaciones = document.getElementById("observaciones");
-const contador = document.getElementById("contadorObservaciones");
+const contador = document.createElement("label");
+
+contador.textContent = "0/200"
+divObservaciones.appendChild(contador);
+
 
 campoObservaciones.maxLength = 200;
 
@@ -64,10 +69,8 @@ function actualizarContador(){
   contador.classList.remove("contador--limite");
 
   if(tamañoObservaciones >=150 && tamañoObservaciones <200){
-    contador.classList.remove("contador--limite");
     contador.classList.add("contador--alerta");
   } else if(tamañoObservaciones == 200){
-    contador.classList.remove("contador--alerta");
     contador.classList.add("contador--limite");
   }
 }
@@ -77,8 +80,12 @@ campoObservaciones.addEventListener("input", actualizarContador);
 
 
 // 📧 FEATURE 2: validación del correo electrónico
+const divCorreo = document.getElementById("campoCorreo")
 const campoCorreo = document.getElementById("correo");
-const campoTextoValidacion = document.getElementById("validacionCorreo");
+const campoTextoValidacion = document.createElement("label");
+
+campoTextoValidacion.textContent = "El correo electronico es obligatorio";
+divCorreo.appendChild(campoTextoValidacion)
 
 
 function validarCorreoElectronico(){
@@ -126,10 +133,13 @@ campoCorreo.addEventListener("blur", validarCorreoElectronico);
 
 // 🎟️ FEATURE 3: límite de talleres seleccionables
 const campoGrupoTalleres = document.getElementById("grupo-talleres");
-const contadorTalleres = document.getElementById("contadorTalleres");
+const contadorTalleres = document.createElement("label");
+
+contadorTalleres.textContent = "Talleres selecionados: 0/2";
+campoGrupoTalleres.appendChild(contadorTalleres);
 
 function validarLimiteDeTalleres(){
-  const camposSeleccionados = campoGrupoTalleres.querySelectorAll('input:checked');
+  const camposSeleccionados = campoGrupoTalleres.querySelectorAll('input[name="taller"]:checked');
   contadorTalleres.textContent = "Talleres seleccionados:" +  camposSeleccionados.length + "/2";
 
   const todosLosCampos = campoGrupoTalleres.querySelectorAll('input[name="taller"]');
@@ -187,9 +197,12 @@ mostrarPrecioTotal(); //Para cuando la pagina se recarge
 
 
 // 👥 FEATURE 5: registro de acompañantes
+const campoRegistro = document.getElementById("campoAcompanantes")
 const listaAcompañantes = document.getElementById("lista-acompanantes");
 const botonAgregar = document.getElementById("btn-agregar-acompanante");
-const advertenciaNombre = document.getElementById("advertencia-nombre-vacio");
+const advertenciaNombre = document.createElement("label");
+
+campoRegistro.appendChild(advertenciaNombre)
 
 function obtenerInformacionAcompañante(){
   const campoNombre = document.getElementById("acompanante-nombre");

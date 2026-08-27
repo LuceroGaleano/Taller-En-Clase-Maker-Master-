@@ -38,11 +38,10 @@
           <input class="campo__control" type="text" id="documento" name="documento" placeholder="1017234567">
         </div>
 
-        <div class="campo">
+        <div class="campo" id = "campoCorreo">
           <label class="campo__etiqueta" for="correo">Correo electrónico</label>
           <input class="campo__control" type="email" id="correo" name="correo" placeholder="ana@correo.com">
           <!-- 👋 Aquí cabe el mensaje de validación -->
-           <label id = "validacionCorreo">El correo electronico es obligatorio</label>
         </div>
 
         <div class="campo">
@@ -103,7 +102,7 @@
       </fieldset>
 
       <!-- 🛠️ 03. Talleres -->
-      <fieldset class="bloque">
+      <fieldset class="bloque", class = "bloqueTalleres">
         <legend class="bloque__titulo"><span class="bloque__numero">03</span> Talleres de interés</legend>
         <p class="bloque__ayuda">Cada participante puede reservar máximo 2 talleres.</p>
 
@@ -148,7 +147,6 @@
             </span>
           </label>
         </div>
-        <label id="contadorTalleres">Talleres seleccionados: 0/2</label>
       </fieldset>
 
       <!-- 👥 04. Acompañantes -->
@@ -156,7 +154,7 @@
         <legend class="bloque__titulo"><span class="bloque__numero">04</span> Acompañantes</legend>
         <p class="bloque__ayuda">Registra a las personas que asisten contigo. Máximo 4.</p>
 
-        <div class="campo-doble">
+        <div class="campo-doble", id="campoAcompanantes">
           <div class="campo">
             <label class="campo__etiqueta" for="acompanante-nombre">Nombre del acompañante</label>
             <input class="campo__control" type="text" id="acompanante-nombre" placeholder="Nombre y apellido">
@@ -171,8 +169,6 @@
               <option value="otro">Otro</option>
             </select>
           </div>
-
-          <label id="advertencia-nombre-vacio"></label>
         </div>
 
         <button class="boton boton--secundario" type="button" id="btn-agregar-acompanante">
@@ -235,7 +231,7 @@
       <fieldset class="bloque">
         <legend class="bloque__titulo"><span class="bloque__numero">06</span> Observaciones</legend>
 
-        <div class="campo">
+        <div class="campo", id="campo">
           <label class="campo__etiqueta" for="observaciones">
             Requerimientos especiales, alergias o accesibilidad
           </label>
@@ -246,9 +242,6 @@
             rows="4"
             placeholder="Cuéntanos si necesitas algo puntual para tu participación."></textarea>
           <!-- 👋 Aquí cabe el contador de caracteres -->
-           <label id = "contadorObservaciones">
-            0/200
-           </label>
         </div>
 
         <label class="opcion opcion--simple">
